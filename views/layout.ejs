@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="min-h-screen bg-gray-50">
+        <% if (typeof currentPage !== 'undefined' && currentPage !== 'login') { %>
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-white/20 p-2 rounded-lg">
+                            <img src="/estilos escuela/user.svg" alt="Logo" class="h-8 w-8 rounded-full">
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold">E.E.S.T N°4</h1>
+                            <p class="text-blue-100 text-sm">Sistema de Administración de Alumnos</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded-lg">
+                            <img src="/estilos escuela/user.svg" alt="Usuario" class="h-4 w-4">
+                            <span class="text-sm" id="saludoUsuario"></span>
+                        </div>
+                        <button id="cerrarSesion"
+                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:text-accent-foreground h-9 rounded-md px-3 bg-white/10 border-white/20 text-white hover:bg-white/20">
+                            <img src="/estilos escuela/cerrarSesion.svg" alt="" class="h-5 w-5 mr-2">
+                            Cerrar sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="bg-blue-700 border-b border-blue-600">
+            <div class="container mx-auto">
+                <div class="flex space-x-1 overflow-x-auto py-2">
+                    <a href="/"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-secondary/80 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all <%= currentPage === 'index' ? 'bg-white text-blue-800 shadow-sm' : 'text-blue-100 hover:bg-blue-600 hover:text-white' %>">
+                        <img src="/estilos escuela/home.svg" alt="Inicio" class="size-4 shrink-0">
+                        <span>Inicio</span>
+                    </a>
+                    <a href="/alumnos-oficina"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all <%= currentPage === 'alumnos-oficina' ? 'bg-white text-blue-800 shadow-sm' : 'text-blue-100 hover:bg-blue-600 hover:text-white' %>">
+                        <img src="/estilos escuela/users.svg" alt="Oficina de Alumnos" class="size-4 shrink-0">
+                        <span>Oficina de Alumnos</span>
+                    </a>
+                    <a href="/cursos"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all <%= currentPage === 'cursos' ? 'bg-white text-blue-800 shadow-sm' : 'text-blue-100 hover:bg-blue-600 hover:text-white' %>">
+                        <img src="/estilos escuela/book.svg" alt="Cursos" class="size-4 shrink-0">
+                        <span>Cursos</span>
+                    </a>
+                    <a href="/gestion-academica"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all <%= currentPage === 'gestion-academica' ? 'bg-white text-blue-800 shadow-sm' : 'text-blue-100 hover:bg-blue-600 hover:text-white' %>">
+                        <img src="/estilos escuela/chart.svg" alt="Gestión Académica" class="size-4 shrink-0">
+                        <span>Gestión Académica</span>
+                    </a>
+                    <a href="/administracion-usuarios"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all <%= currentPage === 'administracion-usuarios' ? 'bg-white text-blue-800 shadow-sm' : 'text-blue-100 hover:bg-blue-600 hover:text-white' %>">
+                        <img src="/estilos escuela/shield.svg" alt="Administración de Usuarios" class="size-4 shrink-0">
+                        <span>Administración de Usuarios</span>
+                    </a>
+                    <a href="/bitacora"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all <%= currentPage === 'bitacora' ? 'bg-white text-blue-800 shadow-sm' : 'text-blue-100 hover:bg-blue-600 hover:text-white' %>">
+                        <img src="/estilos escuela/key.svg" alt="Bitácora" class="size-4 shrink-0">
+                        <span>Bitácora</span>
+                    </a>
+                    <a href="/configuracion"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all <%= currentPage === 'configuracion' ? 'bg-white text-blue-800 shadow-sm' : 'text-blue-100 hover:bg-blue-600 hover:text-white' %>">
+                        <img src="/estilos escuela/settings.svg" alt="Configuración" class="size-4 shrink-0">
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <% } %>
+        
+        <main class="container mx-auto px-4 py-6">
+            <% if (typeof view !== 'undefined') { %>
+                <%- include(view) %>
+            <% } else { %>
+                <%- body %>
+            <% } %>
+        </main>
+    </div>
+
+    <!-- Scripts comunes -->
+    <% if (typeof currentPage !== 'undefined' && currentPage !== 'login') { %>
+    <script>
+        // Protección de página
+        if (!localStorage.getItem('usuario')) {
+            window.location.href = "/login";
+        }
+        
+        // Saludo de usuario
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        if (usuario && document.getElementById('saludoUsuario')) {
+            document.getElementById('saludoUsuario').textContent = usuario ? `Hola, ${usuario.nombre}` : "Hola, Administrador";
+        }
+        
+        // Cerrar sesión
+        if (document.getElementById('cerrarSesion')) {
+            document.getElementById('cerrarSesion').addEventListener('click', function() {
+                localStorage.removeItem('usuario');
+                window.location.href = "/login";
+            });
+        }
+    </script>
+    <% } %>
+</body>
+
+</html>
