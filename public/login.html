@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | E.E.S.T N°4</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex items-center space-x-4">
+            <div class="bg-white/20 p-2 rounded-lg">
+                <img src="/estilos escuela/user.svg" alt="Logo" class="h-8 w-8 rounded-full">
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold">E.E.S.T N°4</h1>
+                <p class="text-blue-100 text-sm">Sistema de Administración de Alumnos</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center">
+        <form id="loginForm" class="bg-white rounded-lg shadow-md p-8 w-full max-w-md border space-y-6">
+            <h2 class="text-2xl font-bold text-gray-900 text-center mb-4 flex items-center justify-center">
+                <img src="/estilos escuela/key.svg" alt="Login" class="h-6 w-6 mr-2 text-blue-600">
+                Iniciar Sesión
+            </h2>
+            <div>
+                <label for="usuario" class="block mb-2 font-semibold text-gray-700">Usuario (Nombre o DNI)</label>
+                <input type="text" id="usuario" name="usuario" class="border px-3 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="relative">
+                <label for="password" class="block mb-2 font-semibold text-gray-700">Contraseña</label>
+                <input type="password" id="password" name="password" class="border px-3 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <button type="button" id="togglePassword" class="absolute right-3 top-8 text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                </button>
+            </div>
+            <div id="loginMsg" class="text-center text-red-600 font-semibold"></div>
+            <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded font-bold hover:bg-blue-800 transition">Ingresar</button>
+        </form>
+        <!-- MODAL CAMBIO DE CONTRASEÑA -->
+        <div id="modalCambioPassword" class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50" style="display:none;">
+          <div class="bg-white rounded-lg p-6 w-full max-w-xs shadow-lg">
+            <h2 class="text-lg font-bold text-center mb-4">Cambiar contraseña</h2>
+            <form id="formCambioPassword">
+              <input type="password" id="inputNuevaPassword" class="w-full border px-3 py-2 rounded mb-4" required placeholder="Nueva contraseña">
+              <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded w-full">Cambiar</button>
+              <button type="button" class="mt-2 text-gray-500 hover:text-gray-800 w-full" onclick="cerrarModalCambioPassword()">Cancelar</button>
+            </form>
+            <div id="msgCambioPassword" class="text-center text-red-600 font-semibold mt-2"></div>
+          </div>
+        </div>
+    </main>
+    <script>
+let usuarioCambioClave = null;
+
+// Mostrar/Ocultar contraseña
+const passwordInput = document.getElementById('password');
+const togglePassword = document.getElementById('togglePassword');
+const eyeIcon = document.getElementById('eyeIcon');
+let passwordVisible = false;
+togglePassword.onclick = function() {
+    passwordVisible = !passwordVisible;
+    passwordInput.type = passwordVisible ? 'text' : 'password';
+    eyeIcon.innerHTML = passwordVisible
+        ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.999 9.999 0 012.005-3.417M6.7 6.7A9.998 9.998 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.95 9.95 0 01-4.118 5.225M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />`
+        : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />`;
+};
+
+// Login funcional con sesión en localStorage
+document.getElementById('loginForm').onsubmit = async function(e) {
+    e.preventDefault();
+    const usuario = document.getElementById('usuario').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const msg = document.getElementById('loginMsg');
+    msg.textContent = '';
+
+    const res = await fetch('http://localhost:3000/api/usuarios/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ usuario, password })
+    });
+    const data = await res.json();
+
+    // Si la contraseña expiró, mostrar el modal/cambio obligatorio
+    if (data.requiereCambioPassword) {
+        usuarioCambioClave = data.user.id_usuario || usuario; // Guarda el id para el cambio
+        mostrarModalCambioPassword();
+        msg.style.color = 'orange';
+        msg.textContent = data.message || 'La contraseña ha expirado. Debe cambiarla.';
+        return;
+    }
+
+    if (data.success) {
+        msg.style.color = 'green';
+        msg.textContent = '¡Login exitoso!';
+        localStorage.setItem('usuario', JSON.stringify(data.user));
+        setTimeout(()=>window.location.href="index.html", 500);
+    } else {
+        msg.style.color = 'red';
+        msg.textContent = data.message || 'Usuario o contraseña incorrectos';
+    }
+};
+
+// Si ya está logueado, redirige al index
+if (localStorage.getItem('usuario')) {
+    window.location.href = "index.html";
+}
+
+// Modal cambio de contraseña
+function mostrarModalCambioPassword() {
+    document.getElementById('modalCambioPassword').style.display = 'flex';
+    document.getElementById('formCambioPassword').reset();
+    document.getElementById('msgCambioPassword').textContent = '';
+}
+
+function cerrarModalCambioPassword() {
+    document.getElementById('modalCambioPassword').style.display = 'none';
+    usuarioCambioClave = null;
+    document.getElementById('msgCambioPassword').textContent = '';
+}
+
+// AVISO DE REQUISITOS DE CLAVE
+document.getElementById('formCambioPassword').onsubmit = async function(e) {
+    e.preventDefault();
+    const nuevaPassword = document.getElementById('inputNuevaPassword').value.trim();
+    if (!validarPassword(nuevaPassword)) {
+        document.getElementById('msgCambioPassword').textContent = 'La contraseña debe tener entre 8 y 16 caracteres, incluir mayúsculas, minúsculas, números y caracteres especiales.';
+        return;
+    }
+    // Cambia la contraseña en el backend
+    const res = await fetch(`http://localhost:3000/api/usuarios/${usuarioCambioClave}/cambiar-password`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ nuevaPassword })
+    });
+    if (res.ok) {
+        document.getElementById('msgCambioPassword').style.color = 'green';
+        document.getElementById('msgCambioPassword').textContent = 'Contraseña cambiada correctamente. Ingrese de nuevo.';
+        setTimeout(()=>{
+            cerrarModalCambioPassword();
+        }, 1500);
+    } else {
+        // Leer el mensaje del backend y mostrarlo (esto es lo agregado)
+        const msg = await res.text();
+        document.getElementById('msgCambioPassword').textContent = msg || 'Error al cambiar la contraseña';
+    }
+};
+//REQUISITOS
+function validarPassword(password) {
+    const minLength = 8;
+    const maxLength = 16;
+    if (password.length < minLength || password.length > maxLength) return false;
+    if (!/[A-Z]/.test(password)) return false;
+    if (!/[a-z]/.test(password)) return false;
+    if (!/[0-9]/.test(password)) return false;
+    if (!/[!@#$%^&*()_\-+=\[\]{};:,.<>|\/?]/.test(password)) return false;
+    return true;
+}
+    </script>
+</body>
+</html>

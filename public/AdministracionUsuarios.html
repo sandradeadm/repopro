@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Usuarios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div class="min-h-screen bg-gray-50">
+            <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+                <div class="container mx-auto px-4 py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-white/20 p-2 rounded-lg">
+                                <img src="/estilos escuela/user.svg" alt="Logo" class="h-8 w-8 rounded-full">
+                            </div>
+                            <div>
+                                <h1 class="text-2xl font-bold">E.E.S.T N°4</h1>
+                                <p class="text-blue-100 text-sm">Sistema de Administración de Alumnos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded-lg">
+                                <img src="/estilos escuela/user.svg" alt="Usuario" class="h-4 w-4">
+                                <span class="text-sm" id="saludoUsuario"></span>
+                            </div>
+                            <button id="cerrarSesion"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:text-accent-foreground h-9 rounded-md px-3 bg-white/10 border-white/20 text-white hover:bg-white/20">
+                                <img src="/estilos escuela/cerrarSesion.svg" alt="" class="h-5 w-5 mr-2">
+                                Cerrar sesión
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <nav class="bg-blue-700 border-b border-blue-600">
+                <div class="container mx-auto">
+                    <div class="flex space-x-1 overflow-x-auto py-2">
+                        <a href="index.html" class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/home.svg" alt="Inicio" class="size-4 shrink-0">
+                            <span>Inicio</span>
+                        </a>
+                        <a href="AlumnosOficina.html" class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/users.svg" alt="Oficina de Alumnos" class="size-4 shrink-0">
+                            <span>Oficina de Alumnos</span>
+                        </a>
+                        <a href="Cursos.html" class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/book-open.svg" alt="Gestión cursos" class="size-4 shrink-0">
+                            <span>Gestión cursos</span>
+                        </a>
+                        <a href="GestionAcademica.html" class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/graduation-cap.svg" alt="Gestión Académica" class="size-4 shrink-0">
+                            <span>Gestión Académica</span>
+                        </a>
+                        <a href="AdministracionUsuarios.html" class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-secondary/80 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all bg-white text-blue-800 shadow-sm">
+                            <img src="/estilos escuela/shield.svg" alt="Administración de Usuarios" class="size-4 shrink-0">
+                            <span>Administración de Usuarios</span>
+                        </a>
+                        <a href="bitacora.html" class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/key.svg" alt="Bitácora" class="size-4 shrink-0">
+                            <span>Bitácora</span>
+                        </a>
+                        <a href="Configuracion.html" class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/settings.svg" alt="Configuración" class="size-4 shrink-0">
+                            <span>Configuración</span>
+                        </a>
+                    </div>
+                </div>
+                
+            </nav>
+            <main class="container mx-auto px-4 py-6">
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-sm border p-6">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Administración de Usuarios</h1>
+                        <p class="text-gray-600">Gestión de usuarios del sistema, roles, permisos y configuración de
+                            contraseñas.</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+<!-- boton gestionar grupos -->
+    <div onclick="abrirModalGestionarGrupos()" class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow cursor-pointer w-80">
+        <div class="p-6 text-center">
+            <img src="/estilos escuela/groups.svg" alt="" class="lucide lucide-users-group h-12 w-12 text-purple-600 mx-auto mb-3">
+            <h3 class="font-semibold text-gray-900 mb-2">Gestionar Grupos</h3>
+            <p class="text-sm text-gray-600">Cambiar grupo de los usuarios</p>
+        </div>
+    </div>
+    <!-- boton para crear usuario -->
+    <div onclick="abrirModalAgregarUsuario()" class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow cursor-pointer w-80">
+        <div class="p-6 text-center">
+            <img src="/estilos escuela/user-new(+).svg" alt="" class="lucide lucide-user-plus h-12 w-12 text-blue-600 mx-auto mb-3">
+            <h3 class="font-semibold text-gray-900 mb-2">Crear Usuario</h3>
+            <p class="text-sm text-gray-600">Alta de nuevos usuarios con roles</p>
+        </div>
+    </div>
+    <!-- Botón Gestionar Permisos -->
+    <div onclick="abrirModalGestionarPermisos()" class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow cursor-pointer w-80">
+        <div class="p-6 text-center">
+            <img src="/estilos escuela/shieldRed.svg" alt="" class="lucide lucide-lock h-12 w-12 text-yellow-600 mx-auto mb-3">
+            <h3 class="font-semibold text-gray-900 mb-2">Gestionar Permisos</h3>
+            <p class="text-sm text-gray-600">Roles y accesos del sistema</p>
+        </div>
+    </div>
+</div>
+
+                        
+                    </div><!--modal para gestionar grupos -->
+<div id="modalGestionarGrupos" class="modal fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-60" style="display:none;">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-lg p-8">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-bold text-purple-700">Gestionar Grupos</h2>
+            <button onclick="cerrarModalGestionarGrupos()" class="text-gray-400 hover:text-gray-600 text-3xl font-bold">&times;</button>
+        </div>
+        <div class="mb-4">
+            <label class="block font-semibold mb-1">Buscar usuario:</label>
+            <input type="text" id="buscarUsuarioGrupos" class="border px-3 py-2 rounded w-full" placeholder="Nombre o DNI..." autocomplete="off" oninput="buscarUsuarioParaGrupo()">
+        </div>
+        <div class="mb-4">
+            <label class="block font-semibold mb-1">Seleccionar usuario:</label>
+            <select id="selectUsuarioGrupos" class="border px-3 py-2 rounded w-full" size="5" onchange="cargarGrupoActualUsuario()"></select>
+        </div>
+        <div id="grupoActualGrupos" class="mb-4 hidden">
+            <label class="block font-semibold mb-1">Grupo actual:</label>
+            <input type="text" id="inputGrupoActualGrupos" class="border px-3 py-2 rounded w-full bg-gray-100" readonly>
+        </div>
+        <div id="cambiarGrupoGrupos" class="mb-4 hidden">
+            <label class="block font-semibold mb-1">Nuevo grupo:</label>
+            <select id="selectNuevoGrupoGrupos" class="border px-3 py-2 rounded w-full"></select>
+        </div>
+        <button id="btnGuardarGrupoGrupos" onclick="guardarNuevoGrupoGrupos()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded w-full hidden">Guardar cambio de grupo</button>
+    </div>
+</div>
+
+                    <!-- seccion de usuarios por rol y contraseña -->
+<div class="flex flex-col lg:flex-row gap-6">
+  <!-- Usuarios por Rol -->
+  <div class="flex-1 rounded-lg border bg-card text-card-foreground shadow-sm">
+    <div class="flex flex-col space-y-1.5 p-6">
+      <h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" class="lucide lucide-users h-5 w-5 mr-2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        Usuarios por Rol
+      </h3>
+    </div>
+    <div class="p-6 pt-0">
+      <div class="space-y-4" id="usuariosPorRolContainer">
+     
+      </div>
+    </div>
+  </div>
+  <!-- Seguridad de Contraseñas -->
+  <div class="flex-1 rounded-lg border bg-card text-card-foreground shadow-sm">
+    <div class="flex flex-col space-y-1.5 p-6">
+      <h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" class="lucide lucide-key h-5 w-5 mr-2">
+          <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+          <path d="m21 2-9.6 9.6"></path>
+          <circle cx="7.5" cy="15.5" r="5.5"></circle>
+        </svg>
+        Seguridad de Contraseñas
+      </h3>
+   
+          
+       
+        <div class="space-y-2">
+          <h4 class="font-medium text-gray-900">Requisitos de Contraseña:</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Mínimo una mayúscula</li>
+            <li>• Mínimo una minúscula</li>
+            <li>• Un número (no consecutivo)</li>
+            <li>• Un carácter especial</li>
+            <li>• Cambio cada 6 meses</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                    <!-- tabla de usuarios -->
+                    <div class="bg-white rounded-lg shadow-sm border p-6 mt-8">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            Tabla de Usuarios
+                        </h2>
+                        <!-- Buscador y paginación -->
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+                            <div class="flex items-center gap-2">
+                                <input type="text" id="buscador" class="border px-3 py-2 rounded w-64" placeholder="Buscar por nombre o DNI...">
+                                <button id="buscarBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Buscar</button>
+                            </div>
+                            <div>
+                                <label for="limite" class="mr-2">Usuarios por página:</label>
+                                <select id="limite" class="border px-2 py-1 rounded">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200" id="tablaUsuarios">
+                                <thead class="bg-blue-700 text-white">
+                                    <tr>
+                                        <th class="px-4 py-2">ID</th>
+                                        <th class="px-4 py-2">Nombre</th>
+                                        <th class="px-4 py-2">Contraseña</th>
+                                        <th class="px-4 py-2">DNI</th>
+                                        <th class="px-4 py-2">Rol</th>
+                                        <th class="px-4 py-2">Grupo</th>
+                                        <th class="px-4 py-2">Estado</th>
+                                        <th class="px-4 py-2">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usuariosBody">
+</tbody>
+
+                            </table>
+                        </div>
+                        <!-- Controles de paginación -->
+                        <div class="flex items-center justify-between mt-4">
+                            <div id="paginacionInfo" class="text-gray-700"></div>
+                            <div class="flex gap-2">
+                                <button id="prevBtn" class="px-3 py-1 rounded bg-blue-600 text-white disabled:bg-blue-300">Anterior</button>
+                                <button id="nextBtn" class="px-3 py-1 rounded bg-blue-600 text-white disabled:bg-blue-300">Siguiente</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- modal para agregar usuario-->
+    <div id="modalAgregarUsuario" class="modal fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50" style="display:none;">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold">Agregar Nuevo Usuario</h2>
+                <button onclick="cerrarModalAgregarUsuario()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+            <form id="formAgregarUsuario">
+                <div class="mb-4">
+                    <label for="nombre" class="block mb-1 font-semibold">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" maxlength="15" class="w-full border px-3 py-2 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block mb-1 font-semibold">Contraseña:</label>
+                    <input type="password" id="password" name="password" maxlength="15" class="w-full border px-3 py-2 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="dni" class="block mb-1 font-semibold">DNI:</label>
+                    <input type="text" id="dni" name="dni" maxlength="8" class="w-full border px-3 py-2 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="rol" class="block mb-1 font-semibold">Rol:</label>
+                    <select id="rol" name="rol" class="w-full border px-3 py-2 rounded" required></select>
+                </div>
+                <div class="mb-4">
+                    <label for="grupo" class="block mb-1 font-semibold">Grupo:</label>
+                    <select id="grupo" name="grupo" class="w-full border px-3 py-2 rounded" required></select>
+                </div>
+               
+
+                <button id="btnAgregarUsuario" type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Agregar Usuario</button>
+            </form>
+        </div>
+    </div>
+    <!-- modal de acciones -->
+    <div id="modalAccionUsuario" class="modal fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-60" style="display:none;">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-blue-700 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <circle cx="12" cy="12" r="3" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M11.25 2.25c.38 0 .7.28.74.65l.01.1v.98c1.11.1 2.16.42 3.11.92l.7-.7a.75.75 0 0 1 1.13.98l-.07.08-.7.7a8.25 8.25 0 0 1 1.84 3.11l.98-.01a.75.75 0 0 1 .1 1.49l-.1.01-.98.01c-.1 1.11-.42 2.16-.92 3.11l.7.7a.75.75 0 0 1-.98 1.13l-.08-.07-.7-.7a8.25 8.25 0 0 1-3.11 1.84l.01.98a.75.75 0 0 1-1.49.1l-.01-.1-.01-.98a8.25 8.25 0 0 1-3.11-.92l-.7.7a.75.75 0 0 1-1.13-.98l.07-.08.7-.7a8.25 8.25 0 0 1-1.84-3.11l-.98.01a.75.75 0 0 1-.1-1.49l.1-.01.98-.01c.1-1.11.42-2.16.92-3.11l-.7-.7a.75.75 0 0 1 .98-1.13l.08.07.7.7a8.25 8.25 0 0 1 3.11-1.84l-.01-.98A.75.75 0 0 1 11.25 2.25z" />
+                    </svg>
+                    Acciones de Usuario
+                </h2>
+                <button onclick="cerrarModalAccionUsuario()" class="text-gray-400 hover:text-gray-600 text-3xl font-bold">&times;</button>
+            </div>
+            <div class="mb-4 text-center">
+                <span class="text-lg font-semibold text-gray-800" id="accionesUsuarioNombre"></span>
+            </div>
+            <div class="space-y-3">
+                <button id="accionDesbloquear" onclick="desbloquearUsuario()" class="w-full flex items-center gap-2 justify-center text-yellow-700 border border-yellow-400 bg-yellow-100 hover:bg-yellow-200 px-4 py-2 rounded-lg font-semibold transition-all duration-150">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a2 2 0 01-1.4.6H6a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v6a2 2 0 01-.6 1.4"/></svg>
+                    Desbloquear
+                </button>
+                <button id="accionHabilitar" onclick="habilitarUsuario()" class="w-full flex items-center gap-2 justify-center text-green-700 border border-green-400 bg-green-100 hover:bg-green-200 px-4 py-2 rounded-lg font-semibold transition-all duration-150">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    Habilitar
+                </button>
+                <button id="accionDeshabilitar" onclick="deshabilitarUsuario()" class="w-full flex items-center gap-2 justify-center text-red-700 border border-red-400 bg-red-100 hover:bg-red-200 px-4 py-2 rounded-lg font-semibold transition-all duration-150">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    Deshabilitar
+                </button>
+                <button id="accionCambiarPassword" class="bg-yellow-500 text-white px-4 py-2 rounded mt-2 w-full">
+  Cambiar contraseña
+</button>
+
+            </div>
+        </div>
+    </div>
+      <div id="modalGestionarPermisos" class="modal fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-60" style="display:none;">
+                        <div class="bg-white rounded-xl shadow-lg w-full max-w-lg p-8">
+                            <div class="flex justify-between items-center mb-4">
+                                <h2 class="text-lg font-bold text-blue-700">Gestionar Permisos</h2>
+                                <button onclick="cerrarModalGestionarPermisos()" class="text-gray-400 hover:text-gray-600 text-3xl font-bold">&times;</button>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block font-semibold mb-1">Buscar usuario:</label>
+                                <input type="text" id="buscarUsuarioPermisos" class="border px-3 py-2 rounded w-full" placeholder="Nombre o DNI..." autocomplete="off" oninput="buscarUsuarioParaPermiso()">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block font-semibold mb-1">Seleccionar usuario:</label>
+                                <select id="selectUsuarioPermisos" class="border px-3 py-2 rounded w-full" size="5" onchange="cargarRolActualUsuario()"></select>
+                            </div>
+                            <div id="rolActualPermisos" class="mb-4 hidden">
+                                <label class="block font-semibold mb-1">Rol actual:</label>
+                                <input type="text" id="inputRolActualPermisos" class="border px-3 py-2 rounded w-full bg-gray-100" readonly>
+                            </div>
+                            <div id="cambiarRolPermisos" class="mb-4 hidden">
+                                <label class="block font-semibold mb-1">Nuevo rol:</label>
+                                <select id="selectNuevoRolPermisos" class="border px-3 py-2 rounded w-full"></select>
+                            </div>
+                            <button id="btnGuardarRolPermisos" onclick="guardarNuevoRolPermisos()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full hidden">Guardar cambio de rol</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- modal para ver contraseñas (solo admins) -->
+<div id="modalVerPass" class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50" style="display:none;">
+  <div class="bg-white rounded-lg p-6 w-full max-w-xs shadow-lg">
+    <h2 class="text-lg font-bold text-center mb-4">Credenciales de Administrador</h2>
+    <form id="formVerPass">
+      <div class="mb-3">
+        <label class="font-semibold mb-1 block">Usuario:</label>
+        <input type="text" id="verPassUsuario" class="w-full border px-3 py-2 rounded" required>
+      </div>
+      <div class="mb-4">
+        <label class="font-semibold mb-1 block">Contraseña:</label>
+        <input type="password" id="verPassPassword" class="w-full border px-3 py-2 rounded" required>
+      </div>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded w-full" type="submit">Ver contraseña</button>
+      <button class="mt-2 text-gray-500 hover:text-gray-800 w-full" type="button" onclick="cerrarModalVerPass()">Cancelar</button>
+    </form>
+  </div>
+</div>
+<!-- Modal Cambiar Contraseña -->
+<div id="modalCambiarPassword" class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50" style="display:none;">
+  <div class="bg-white rounded-lg p-6 w-full max-w-xs shadow-lg">
+    <h2 class="text-lg font-bold text-center mb-4">Cambiar contraseña de <span id="nombreUsuarioCambioPass"></span></h2>
+    <form id="formCambiarPassword">
+      <div class="mb-3">
+        <label class="font-semibold mb-1 block">Nueva contraseña:</label>
+        <input type="password" id="nuevaPassword" class="w-full border px-3 py-2 rounded" required>
+      </div>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded w-full" type="submit">Cambiar</button>
+      <button class="mt-2 text-gray-500 hover:text-gray-800 w-full" type="button" onclick="cerrarModalCambiarPassword()">Cancelar</button>
+    </form>
+  </div>
+</div>
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+                <div class="text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg p-6">
+                    <h2 class="text-2xl font-bold mb-2">Escuela Técnica N° 4 Prof. Ricardo A. López</h2>
+                    <p class="text-blue-100">Sistema Integral de Gestión Académica</p>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div><strong>Ubicación:</strong> [Dirección de la escuela]</div>
+                        <div><strong>Desarrollado por:</strong> Equipo de Desarrollo</div>
+                        <div><strong>Versión:</strong> 2.0.1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <script>
+    //  proteccion de pagina web 
+// Si no hay usuario en localStorage, redirige al login.
+// También puse un saludo personalizado arriba a la derecha.
+if (!localStorage.getItem('usuario')) {
+    window.location.href = "Login.html";
+}
+const usuario = JSON.parse(localStorage.getItem('usuario'));
+document.getElementById('saludoUsuario').textContent = usuario ? `Hola, ${usuario.nombre}` : "Hola, Administrador";
+
+// Función para registrar una acción en logs/bitacora.
+async function registrarLog(id_operacion, detalle, usuario_afectado = null) {
+    const usuarioStr = localStorage.getItem('usuario');
+    if (!usuarioStr) return;
+    const usuario = JSON.parse(usuarioStr);
+    try {
+        await fetch('http://localhost:3000/api/logs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id_operacion,
+                id_usuario: usuario.id_usuario,
+                ip: null,
+                detalle,
+                usuario_afectado
+            })
+        });
+    } catch (err) {
+        console.error('Error registrando en bitácora:', err);
+    }
+}
+
+// VARIABLES GLOBALES 
+// Variables para la paginación y búsqueda en la tabla de usuarios.
+let pagina = 1;
+let limite = 10;
+let search = "";
+
+// Variables para acciones sobre usuarios (bloquear, habilitar, cambiar password, etc.)
+let usuarioAccionId = null;
+let usuarioAccionNombre = "";
+let usuarioAccionBloqueado = false;
+let usuarioAccionDeshabilitado = false;
+
+let usuarioCambioPasswordId = null;
+let usuarioCambioPasswordNombre = "";
+
+let usuariosBusquedaPermisos = [];
+let usuarioSeleccionadoPermisos = null;
+
+let usuariosBusquedaGrupos = [];
+let usuarioSeleccionadoGrupos = null;
+
+let usuarioVerPassId = null;
+
+
+//CARGAR USUARIOS Y PINTAR TABLA
+
+async function cargarUsuarios() {
+    const res = await fetch(`http://localhost:3000/api/usuarios?search=${encodeURIComponent(search)}&page=${pagina}&limit=${limite}`);
+    const data = await res.json();
+    const tbody = document.getElementById('usuariosBody');
+    tbody.innerHTML = "";
+    data.usuarios.forEach((u, idx) => {
+        let estados = [];
+        if (u.deshabilitado) estados.push('Deshabilitado');
+        else estados.push('Habilitado');
+        if (u.bloqueado) estados.push('Bloqueado');
+        const estadosStr = estados.join(' / ');
+        const zebra = idx % 2 === 0 ? 'bg-white' : 'bg-blue-50';
+
+        tbody.innerHTML += `
+            <tr class="${zebra}">
+                <td class="px-4 py-2">${u.id_usuario}</td>
+                <td class="px-4 py-2">${u.nombre}</td>
+                <td class="px-4 py-2">
+                    <div class="flex items-center gap-2">
+                        <input type="password" readonly value="${u.pass}" class="bg-transparent focus:outline-none w-24" id="pass-${u.id_usuario}">
+                        <button onclick="verPass('${u.id_usuario}')" class="hover:bg-gray-100 rounded-full p-1" title="Ver contraseña">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542 7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-4 py-2">${u.dni}</td>
+                <td class="px-4 py-2">${u.rol}</td>
+                <td class="px-4 py-2">${u.grupo}</td>
+                <td class="px-4 py-2">${estadosStr}</td>
+                <td class="px-4 py-2 text-center">
+                    <button onclick="abrirModalAccionUsuario(${u.id_usuario}, '${u.nombre}', ${u.bloqueado}, ${u.deshabilitado})"
+                        class="hover:bg-blue-100 p-2 rounded-full border border-blue-200" title="Opciones">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <circle cx="12" cy="12" r="3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11.25 2.25c.38 0 .7.28.74.65l.01.1v.98c1.11.1 2.16.42 3.11.92l.7-.7a.75.75 0 0 1 1.13.98l-.07.08-.7.7a8.25 8.25 0 0 1 1.84 3.11l.98-.01a.75.75 0 0 1 .1 1.49l-.1.01-.98.01c-.1 1.11-.42 2.16-.92 3.11l.7.7a.75.75 0 0 1-.98 1.13l-.08-.07-.7-.7a8.25 8.25 0 0 1-3.11 1.84l.01.98a.75.75 0 0 1-1.49.1l-.01-.1-.01-.98a8.25 8.25 0 0 1-3.11-.92l-.7.7a.75.75 0 0 1-1.13-.98l.07-.08.7-.7a8.25 8.25 0 0 1-1.84-3.11l-.98.01a.75.75 0 0 1-.1-1.49l.1-.01.98-.01c.1-1.11.42-2.16.92-3.11l-.7-.7a.75.75 0 0 1 .98-1.13l.08.07.7.7a8.25 8.25 0 0 1 3.11-1.84l-.01-.98A.75.75 0 0 1 11.25 2.25z" />
+                        </svg>
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+
+    // Muestra el rango de usuarios y total en la paginación
+    const paginacionInfo = document.getElementById('paginacionInfo');
+    const inicio = (pagina - 1) * limite + 1;
+    const fin = Math.min(pagina * limite, data.total);
+    paginacionInfo.textContent = `Mostrando ${inicio} a ${fin} de ${data.total} usuarios`;
+
+    // Deshabilita o habilita los botones de paginación según corresponda
+    document.getElementById('prevBtn').disabled = pagina === 1;
+    document.getElementById('nextBtn').disabled = pagina * limite >= data.total;
+}
+
+//USUARIOS POR ROL
+// Obtiene la cantidad de usuarios por cada rol y los muestra en badges.
+async function cargarUsuariosPorRol() {
+    const res = await fetch('http://localhost:3000/api/usuarios/usuarios-por-rol');
+    const data = await res.json();
+    const contenedor = document.getElementById('usuariosPorRolContainer');
+    contenedor.innerHTML = '';
+
+    // Paleta de colores para los badges, puedes agregar más si tienes más roles
+    const colores = [
+        'bg-red-100 text-red-800',
+        'bg-green-100 text-green-800',
+        'bg-blue-100 text-blue-800',
+        'bg-purple-100 text-purple-800',
+        'bg-pink-100 text-pink-800',
+        'bg-yellow-100 text-yellow-800',
+        'bg-gray-100 text-gray-800'
+    ];
+
+    data.forEach((rol, idx) => {
+        contenedor.innerHTML += `
+            <div class="flex justify-between items-center">
+                <span class="text-gray-600">${rol.nombre}:</span>
+                <span class="font-semibold px-2 py-1 rounded ${colores[idx % colores.length]}">${rol.cantidad}</span>
+            </div>
+        `;
+    });
+}
+
+// ACCIONES DE PAGINADOR Y BUSCADOR 
+// Botón de búsqueda y paginador para la tabla principal de usuarios.
+document.getElementById('buscarBtn').onclick = function() {
+    search = document.getElementById('buscador').value;
+    pagina = 1;
+    cargarUsuarios();
+};
+
+document.getElementById('limite').onchange = function() {
+    limite = parseInt(this.value);
+    pagina = 1;
+    cargarUsuarios();
+};
+
+document.getElementById('prevBtn').onclick = function() {
+    if (pagina > 1) {
+        pagina--;
+        cargarUsuarios();
+    }
+};
+
+document.getElementById('nextBtn').onclick = function() {
+    pagina++;
+    cargarUsuarios();
+};
+
+// LOGOUT
+// Elimina el usuario de la sesión y redirige a login.
+document.getElementById('cerrarSesion').onclick = function() {
+    localStorage.removeItem('usuario');
+    window.location.href = "Login.html";
+};
+
+// FUNCIÓN CERRAR SESIÓN CON REGISTRO EN LOG
+// Redirige al login y registra el logout en la bitácora.
+function cerrarSesion() {
+    const usuarioStr = localStorage.getItem('usuario');
+    const usuarioObj = usuarioStr ? JSON.parse(usuarioStr) : {};
+    registrarLog(
+        2, // id_operacion para logout
+        `El usuario ${usuarioObj.id_usuario} cerró sesión`,
+        usuarioObj.nombre
+    );
+    localStorage.removeItem('usuario');
+    window.location.href = 'login.html';
+}
+
+// VALIDACIÓN CONTRASEÑA 
+// Verifica que la contraseña cumpla con los requisitos de seguridad.
+function validarPassword(password) {
+    const minLength = 8;
+    const maxLength = 16;
+    if (password.length < minLength || password.length > maxLength) return false;
+    if (!/[A-Z]/.test(password)) return false;
+    if (!/[a-z]/.test(password)) return false;
+    if (!/[0-9]/.test(password)) return false;
+    if (!/[!@#$%^&*()_\-+=\[\]{};:,.<>|\/?]/.test(password)) return false;
+    return true;
+}
+
+// FORMULARIO AGREGAR USUARIO 
+// Valida y envía los datos del nuevo usuario (y registra en bitácora).
+document.getElementById('formAgregarUsuario').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const btn = document.getElementById('btnAgregarUsuario');
+    btn.disabled = true;
+    btn.textContent = "Guardando...";
+
+    const data = {
+        nombre: document.getElementById('nombre').value,
+        password: document.getElementById('password').value,
+        dni: document.getElementById('dni').value,
+        id_rol: document.getElementById('rol').value,
+        id_grupo: document.getElementById('grupo').value
+    };
+
+    if (!validarPassword(data.password)) {
+        alert('La contraseña debe tener entre 8 y 16 caracteres, incluir mayúsculas, minúsculas, números y caracteres especiales.');
+        btn.disabled = false;
+        btn.textContent = "Agregar Usuario";
+        return;
+    }
+
+    try {
+        const res = await fetch('http://localhost:3000/api/usuarios', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        });
+
+        if (res.ok) {
+            const usuarioCreado = await res.json();
+            alert('Usuario agregado correctamente');
+            // REGISTRO EN BITÁCORA
+            registrarLog(
+                3,
+                `El usuario ${usuario.id_usuario} dio de alta al usuario ${usuarioCreado.id_usuario} (${usuarioCreado.nombre})`,
+                usuarioCreado.nombre
+            );
+            cerrarModalAgregarUsuario();
+            cargarUsuarios && cargarUsuarios();
+            if (typeof cargarUsuariosPorRol === "function") cargarUsuariosPorRol();
+        } else {
+            const txt = await res.text();
+            alert('Error: ' + txt);
+        }
+    } catch (err) {
+        alert('Error de red o servidor. Intente nuevamente.');
+    }
+    btn.disabled = false;
+    btn.textContent = "Agregar Usuario";
+});
+
+// MODAL AGREGAR USUARIO 
+//carga los roles y grupos disponibles.
+function abrirModalAgregarUsuario() {
+    document.getElementById('modalAgregarUsuario').style.display = 'flex';
+    cargarRolesYGrupos();
+    const btn = document.getElementById('btnAgregarUsuario');
+    btn.disabled = false;
+    btn.textContent = "Agregar Usuario";
+}
+
+function cerrarModalAgregarUsuario() {
+    document.getElementById('modalAgregarUsuario').style.display = 'none';
+    document.getElementById('formAgregarUsuario').reset();
+    const btn = document.getElementById('btnAgregarUsuario');
+    btn.disabled = false;
+    btn.textContent = "Agregar Usuario";
+}
+
+function cargarRolesYGrupos() {
+    const selectRol = document.getElementById('rol');
+    const selectGrupo = document.getElementById('grupo');
+    selectRol.innerHTML = "<option disabled selected>Cargando...</option>";
+    selectGrupo.innerHTML = "<option disabled selected>Cargando...</option>";
+
+    fetch('http://localhost:3000/api/usuarios/roles')
+    .then(res => res.json())
+    .then(roles => {
+        selectRol.innerHTML = "";
+        roles.forEach(r => {
+            selectRol.innerHTML += `<option value="${r.id_rol}">${r.nombre}</option>`;
+        });
+    });
+
+    fetch('http://localhost:3000/api/usuarios/grupos')
+    .then(res => res.json())
+    .then(grupos => {
+        selectGrupo.innerHTML = "";
+        grupos.forEach(g => {
+            selectGrupo.innerHTML += `<option value="${g.id_grupo}">${g.nombre}</option>`;
+        });
+    });
+}
+
+//MODAL ACCION USUARIO 
+//el modal para las acciones sobre el usuario seleccionado.
+function abrirModalAccionUsuario(id, nombre, bloqueado, deshabilitado) {
+    usuarioAccionId = id;
+    usuarioAccionNombre = nombre;
+    usuarioAccionBloqueado = bloqueado;
+    usuarioAccionDeshabilitado = deshabilitado;
+    document.getElementById("accionesUsuarioNombre").textContent = nombre;
+    document.getElementById("accionDesbloquear").disabled = !bloqueado;
+    document.getElementById("accionDesbloquear").classList.toggle("opacity-50", !bloqueado);
+    document.getElementById("accionHabilitar").disabled = !deshabilitado;
+    document.getElementById("accionHabilitar").classList.toggle("opacity-50", !deshabilitado);
+    document.getElementById("accionDeshabilitar").disabled = !!deshabilitado;
+    document.getElementById("accionDeshabilitar").classList.toggle("opacity-50", !!deshabilitado);
+
+    document.getElementById("accionCambiarPassword").onclick = function() {
+        usuarioCambioPasswordId = id;
+        usuarioCambioPasswordNombre = nombre;
+        abrirModalCambiarPassword();
+    };
+
+    document.getElementById("modalAccionUsuario").style.display = "flex";
+}
+function cerrarModalAccionUsuario() {
+    document.getElementById("modalAccionUsuario").style.display = "none";
+    usuarioAccionId = null;
+}
+
+// DESHABILITAR, HABILITAR, DESBLOQUEAR USUARIO 
+// Ejecuta la acción de habilitar, deshabilitar o desbloquear, registra la acción en la bitácora.
+function deshabilitarUsuario() {
+    if(document.getElementById("accionDeshabilitar").disabled) return;
+    fetch(`http://localhost:3000/api/usuarios/${usuarioAccionId}/deshabilitar`, {method: "PUT"})
+        .then(res => {
+            if(res.ok){
+                alert("Usuario deshabilitado correctamente");
+                registrarLog(
+                    5,
+                    `El usuario ${usuario.id_usuario} deshabilitó al usuario ${usuarioAccionId} (${usuarioAccionNombre})`,
+                    usuarioAccionNombre
+                );
+                cerrarModalAccionUsuario();
+                cargarUsuarios();
+                cargarUsuariosPorRol();
+            } else {
+                res.text().then(txt => alert("Error: " + txt));
+            }
+        });
+}
+function habilitarUsuario() {
+    if(document.getElementById("accionHabilitar").disabled) return;
+    fetch(`http://localhost:3000/api/usuarios/${usuarioAccionId}/habilitar`, {method: "PUT"})
+        .then(res => {
+            if(res.ok){
+                alert("Usuario habilitado correctamente");
+                registrarLog(
+                    6,
+                    `El usuario ${usuario.id_usuario} habilitó al usuario ${usuarioAccionId} (${usuarioAccionNombre})`,
+                    usuarioAccionNombre
+                );
+                cerrarModalAccionUsuario();
+                cargarUsuarios();
+                cargarUsuariosPorRol();
+            } else {
+                res.text().then(txt => alert("Error: " + txt));
+            }
+        });
+}
+function desbloquearUsuario() {
+    if(document.getElementById("accionDesbloquear").disabled) return;
+    fetch(`http://localhost:3000/api/usuarios/${usuarioAccionId}/desbloquear`, {method: "PUT"})
+        .then(res => {
+            if(res.ok){
+                alert("Usuario desbloqueado correctamente");
+                registrarLog(
+                    8, 
+                    `El usuario ${usuario.id_usuario} desbloqueó a ${usuarioAccionId} (${usuarioAccionNombre})`,
+                    usuarioAccionNombre
+                );
+                cerrarModalAccionUsuario();
+                cargarUsuarios();
+                cargarUsuariosPorRol();
+            } else {
+                res.text().then(txt => alert("Error: " + txt));
+            }
+        });
+}
+
+// CAMBIAR CONTRASEÑA 
+// Abre/cierra el modal para cambiar la contraseña y envía la petición al backend.
+function abrirModalCambiarPassword() {
+    document.getElementById('modalCambiarPassword').style.display = 'flex';
+    document.getElementById('formCambiarPassword').reset();
+    document.getElementById('nombreUsuarioCambioPass').textContent = usuarioCambioPasswordNombre;
+}
+function cerrarModalCambiarPassword() {
+    document.getElementById('modalCambiarPassword').style.display = 'none';
+    usuarioCambioPasswordId = null;
+    usuarioCambioPasswordNombre = "";
+}
+document.getElementById('formCambiarPassword').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const nuevaPassword = document.getElementById('nuevaPassword').value;
+    if (!validarPassword(nuevaPassword)) {
+        alert('La contraseña debe tener entre 8 y 16 caracteres, incluir mayúsculas, minúsculas, números y caracteres especiales.');
+        return;
+    }
+    fetch(`http://localhost:3000/api/usuarios/${usuarioCambioPasswordId}/cambiar-password`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ nuevaPassword })
+    })
+    .then(async res => {
+        if (res.ok) {
+            alert('Contraseña cambiada correctamente');
+            registrarLog(
+                7,
+                `El usuario ${usuario.id_usuario} cambió la contraseña del usuario ${usuarioCambioPasswordId} (${usuarioCambioPasswordNombre})`,
+                usuarioCambioPasswordNombre
+            );
+            cerrarModalCambiarPassword();
+            cerrarModalAccionUsuario();
+            cargarUsuarios();
+        } else {
+            const txt = await res.text();
+            alert('Error: ' + txt);
+        }
+    });
+});
+
+
+// Muestra el modal para buscar usuarios y cambiarles el rol.
+function abrirModalGestionarPermisos() {
+    document.getElementById('modalGestionarPermisos').style.display = 'flex';
+    document.getElementById('buscarUsuarioPermisos').value = '';
+    document.getElementById('selectUsuarioPermisos').innerHTML = '';
+    document.getElementById('rolActualPermisos').classList.add('hidden');
+    document.getElementById('cambiarRolPermisos').classList.add('hidden');
+    document.getElementById('btnGuardarRolPermisos').classList.add('hidden');
+    usuariosBusquedaPermisos = [];
+    usuarioSeleccionadoPermisos = null;
+}
+function cerrarModalGestionarPermisos() {
+    document.getElementById('modalGestionarPermisos').style.display = 'none';
+}
+// Busca usuarios por nombre/DNI para el modal de permisos.
+function buscarUsuarioParaPermiso() {
+    const query = document.getElementById('buscarUsuarioPermisos').value.trim();
+    if (query.length < 2) {
+        document.getElementById('selectUsuarioPermisos').innerHTML = '';
+        document.getElementById('rolActualPermisos').classList.add('hidden');
+        document.getElementById('cambiarRolPermisos').classList.add('hidden');
+        document.getElementById('btnGuardarRolPermisos').classList.add('hidden');
+        return;
+    }
+    fetch(`http://localhost:3000/api/usuarios?search=${encodeURIComponent(query)}&page=1&limit=10`)
+        .then(res => res.json())
+        .then(data => {
+            usuariosBusquedaPermisos = data.usuarios;
+            const select = document.getElementById('selectUsuarioPermisos');
+            select.innerHTML = '';
+            usuariosBusquedaPermisos.forEach(u => {
+                select.innerHTML += `<option value="${u.id_usuario}">${u.nombre} (${u.dni})</option>`;
+            });
+            document.getElementById('rolActualPermisos').classList.add('hidden');
+            document.getElementById('cambiarRolPermisos').classList.add('hidden');
+            document.getElementById('btnGuardarRolPermisos').classList.add('hidden');
+        });
+}
+// Carga el rol actual del usuario seleccionado y los posibles roles nuevos.
+function cargarRolActualUsuario() {
+    const select = document.getElementById('selectUsuarioPermisos');
+    const userId = select.value;
+    if (!userId) {
+        document.getElementById('rolActualPermisos').classList.add('hidden');
+        document.getElementById('cambiarRolPermisos').classList.add('hidden');
+        document.getElementById('btnGuardarRolPermisos').classList.add('hidden');
+        usuarioSeleccionadoPermisos = null;
+        return;
+    }
+    usuarioSeleccionadoPermisos = usuariosBusquedaPermisos.find(u => u.id_usuario == userId);
+    document.getElementById('rolActualPermisos').classList.remove('hidden');
+    document.getElementById('inputRolActualPermisos').value = usuarioSeleccionadoPermisos.rol || '';
+    fetch('http://localhost:3000/api/usuarios/roles')
+    .then(res => res.json())
+    .then(roles => {
+        const selectRol = document.getElementById('selectNuevoRolPermisos');
+        selectRol.innerHTML = '';
+        roles.forEach(r => {
+            selectRol.innerHTML += `<option value="${r.id_rol}" ${usuarioSeleccionadoPermisos.id_rol == r.id_rol ? 'selected' : ''}>${r.nombre}</option>`;
+        });
+        document.getElementById('cambiarRolPermisos').classList.remove('hidden');
+        document.getElementById('btnGuardarRolPermisos').classList.remove('hidden');
+    });
+}
+
+// CAMBIO DE ROL Y Guarda el nuevo rol seleccionado para el usuario.
+function guardarNuevoRolPermisos() {
+    if (!usuarioSeleccionadoPermisos) return;
+    const btn = document.getElementById('btnGuardarRolPermisos');
+    btn.disabled = true;
+    btn.textContent = "Guardando...";
+    const nuevoRol = document.getElementById('selectNuevoRolPermisos').value;
+    const nombreRol = document.getElementById('selectNuevoRolPermisos').selectedOptions[0].textContent;
+    if (nuevoRol == usuarioSeleccionadoPermisos.id_rol) {
+        alert('El usuario ya tiene ese rol.');
+        btn.disabled = false;
+        btn.textContent = "Guardar cambio de rol";
+        return;
+    }
+    fetch(`http://localhost:3000/api/usuarios/${usuarioSeleccionadoPermisos.id_usuario}/cambiar-rol`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ nuevoRol })
+    })
+    .then(res => {
+        if (res.ok) {
+            alert('Rol cambiado correctamente');
+            registrarLog(
+                9, // ID de operación para cambio de rol
+                `El usuario ${usuario.id_usuario} cambió el rol del usuario ${usuarioSeleccionadoPermisos.id_usuario} (${usuarioSeleccionadoPermisos.nombre}) al rol ${nombreRol}`,
+                usuarioSeleccionadoPermisos.nombre
+            );
+            cerrarModalGestionarPermisos();
+            cargarUsuarios && cargarUsuarios();
+            if (typeof cargarUsuariosPorRol === "function") cargarUsuariosPorRol();
+        } else {
+            res.text().then(txt => alert('Error: ' + txt));
+        }
+        btn.disabled = false;
+        btn.textContent = "Guardar cambio de rol";
+    })
+    .catch(() => {
+        alert('Error de red o servidor. Intente nuevamente.');
+        btn.disabled = false;
+        btn.textContent = "Guardar cambio de rol";
+    });
+}
+
+// GESTIONAR GRUPOS 
+// Modal para buscar usuarios y cambiarles el grupo.
+function abrirModalGestionarGrupos() {
+    document.getElementById('modalGestionarGrupos').style.display = 'flex';
+    document.getElementById('buscarUsuarioGrupos').value = '';
+    document.getElementById('selectUsuarioGrupos').innerHTML = '';
+    document.getElementById('grupoActualGrupos').classList.add('hidden');
+    document.getElementById('cambiarGrupoGrupos').classList.add('hidden');
+    document.getElementById('btnGuardarGrupoGrupos').classList.add('hidden');
+    usuariosBusquedaGrupos = [];
+    usuarioSeleccionadoGrupos = null;
+}
+function cerrarModalGestionarGrupos() {
+    document.getElementById('modalGestionarGrupos').style.display = 'none';
+}
+// Busca usuarios para el modal de grupos.
+function buscarUsuarioParaGrupo() {
+    const query = document.getElementById('buscarUsuarioGrupos').value.trim();
+    if (query.length < 2) {
+        document.getElementById('selectUsuarioGrupos').innerHTML = '';
+        document.getElementById('grupoActualGrupos').classList.add('hidden');
+        document.getElementById('cambiarGrupoGrupos').classList.add('hidden');
+        document.getElementById('btnGuardarGrupoGrupos').classList.add('hidden');
+        return;
+    }
+    fetch(`http://localhost:3000/api/usuarios?search=${encodeURIComponent(query)}&page=1&limit=10`)
+        .then(res => res.json())
+        .then(data => {
+            usuariosBusquedaGrupos = data.usuarios;
+            const select = document.getElementById('selectUsuarioGrupos');
+            select.innerHTML = '';
+            usuariosBusquedaGrupos.forEach(u => {
+                select.innerHTML += `<option value="${u.id_usuario}">${u.nombre} (${u.dni})</option>`;
+            });
+            document.getElementById('grupoActualGrupos').classList.add('hidden');
+            document.getElementById('cambiarGrupoGrupos').classList.add('hidden');
+            document.getElementById('btnGuardarGrupoGrupos').classList.add('hidden');
+        });
+}
+// Carga el grupo actual del usuario y los posibles grupos nuevos.
+function cargarGrupoActualUsuario() {
+    const select = document.getElementById('selectUsuarioGrupos');
+    const userId = select.value;
+    if (!userId) {
+        document.getElementById('grupoActualGrupos').classList.add('hidden');
+        document.getElementById('cambiarGrupoGrupos').classList.add('hidden');
+        document.getElementById('btnGuardarGrupoGrupos').classList.add('hidden');
+        usuarioSeleccionadoGrupos = null;
+        return;
+    }
+    usuarioSeleccionadoGrupos = usuariosBusquedaGrupos.find(u => u.id_usuario == userId);
+    document.getElementById('grupoActualGrupos').classList.remove('hidden');
+    document.getElementById('inputGrupoActualGrupos').value = usuarioSeleccionadoGrupos.grupo || '';
+    fetch('http://localhost:3000/api/usuarios/grupos')
+    .then(res => res.json())
+    .then(grupos => {
+        const selectGrupo = document.getElementById('selectNuevoGrupoGrupos');
+        selectGrupo.innerHTML = '';
+        grupos.forEach(g => {
+            selectGrupo.innerHTML += `<option value="${g.id_grupo}" ${usuarioSeleccionadoGrupos.id_grupo == g.id_grupo ? 'selected' : ''}>${g.nombre}</option>`;
+        });
+        document.getElementById('cambiarGrupoGrupos').classList.remove('hidden');
+        document.getElementById('btnGuardarGrupoGrupos').classList.remove('hidden');
+    });
+}
+
+// Guarda el nuevo grupo seleccionado para el usuario.
+function guardarNuevoGrupoGrupos() {
+    if (!usuarioSeleccionadoGrupos) return;
+    const btn = document.getElementById('btnGuardarGrupoGrupos');
+    btn.disabled = true;
+    btn.textContent = "Guardando...";
+    const nuevoGrupo = document.getElementById('selectNuevoGrupoGrupos').value;
+    const nombreGrupo = document.getElementById('selectNuevoGrupoGrupos').selectedOptions[0].textContent;
+    if (nuevoGrupo == usuarioSeleccionadoGrupos.id_grupo) {
+        alert('El usuario ya está en ese grupo.');
+        btn.disabled = false;
+        btn.textContent = "Guardar cambio de grupo";
+        return;
+    }
+    fetch(`http://localhost:3000/api/usuarios/${usuarioSeleccionadoGrupos.id_usuario}/cambiar-grupo`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ nuevoGrupo })
+    })
+    .then(res => {
+        if (res.ok) {
+            alert('Grupo cambiado correctamente');
+            registrarLog(
+                10, 
+                `El usuario ${usuario.id_usuario} cambió el grupo del usuario ${usuarioSeleccionadoGrupos.id_usuario} (${usuarioSeleccionadoGrupos.nombre}) al grupo ${nombreGrupo}`,
+                usuarioSeleccionadoGrupos.nombre
+            );
+            cerrarModalGestionarGrupos();
+            cargarUsuarios && cargarUsuarios();
+        } else {
+            res.text().then(txt => alert('Error: ' + txt));
+        }
+        btn.disabled = false;
+        btn.textContent = "Guardar cambio de grupo";
+    })
+    .catch(() => {
+        alert('Error de red o servidor. Intente nuevamente.');
+        btn.disabled = false;
+        btn.textContent = "Guardar cambio de grupo";
+    });
+}
+
+// VER CONTRASEÑA SOLO ADMIN (probablemente se saque)
+// Muestra el modal para ver la contraseña de un usuario (solo si el usuario logueado es admin).
+function verPass(id_usuario) {
+    usuarioVerPassId = id_usuario;
+    document.getElementById('modalVerPass').style.display = 'flex';
+    document.getElementById('formVerPass').reset();
+}
+function cerrarModalVerPass() {
+    document.getElementById('modalVerPass').style.display = 'none';
+    usuarioVerPassId = null;
+}
+document.getElementById('formVerPass').onsubmit = async function(e) {
+    e.preventDefault();
+    const usuarioAdmin = document.getElementById('verPassUsuario').value.trim();
+    const password = document.getElementById('verPassPassword').value;
+    try {
+        const res = await fetch('http://localhost:3000/api/usuarios/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ usuario: usuarioAdmin, password })
+        });
+        const data = await res.json();
+        if (data.success && data.user && data.user.rol && data.user.rol.toLowerCase() === 'administrador') {
+            // Mostrar la contraseña en texto plano
+            const passInput = document.getElementById('pass-' + usuarioVerPassId);
+            passInput.type = passInput.type === 'password' ? 'text' : 'password';
+            cerrarModalVerPass();
+            registrarLog(
+                12,
+                `El administrador ${usuarioAdmin} visualizó la contraseña del usuario ${usuarioVerPassId}`,
+                usuarioVerPassId
+            );
+        } else {
+            alert('Solo un administrador puede ver la contraseña.');
+        }
+    } catch (err) {
+        alert('Error de red o credenciales incorrectas');
+    }
+};
+
+// LOG DE ACCESO AL APARTADO 
+// Registra en la bitácora el acceso al apartado "Administración de Usuarios" al cargar la página.
+document.addEventListener('DOMContentLoaded', async () => {
+    const usuarioStr = localStorage.getItem('usuario');
+    let id_usuario = null;
+    if (usuarioStr) {
+        try {
+            const usuarioObj = JSON.parse(usuarioStr);
+            id_usuario = usuarioObj.id_usuario;
+        } catch(e) {
+            id_usuario = null;
+        }
+    }
+    if (id_usuario) {
+        await fetch('http://localhost:3000/api/logs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id_operacion: 11, // acceso_apartado
+                id_usuario,
+                ip: null,
+                detalle: `El usuario ${id_usuario} accedió al apartado Administración de Usuarios`,
+                usuario_afectado: null
+            })
+        });
+    }
+    cargarUsuarios();
+    cargarUsuariosPorRol();
+});
+
+
+// RESTRICCIÓN DE ACCESO POR ROL (DESARROLLAR MAS)
+
+const usuarioStr = localStorage.getItem('usuario');
+if (!usuarioStr) {
+    // Si no hay usuario, redirige al login
+    window.location.href = "Login.html";
+} else {
+    const usuario = JSON.parse(usuarioStr);
+    // Verifica el rol
+    const rol = usuario.rol ? usuario.rol.toLowerCase() : "";
+    if (rol !== "administrador" && rol !== "soporte") {
+        // Si NO es administrador NI soporte, redirige al dashboard o login
+        alert("Acceso restringido. Solo Administradores y Soporte pueden acceder.");
+        window.location.href = "index.html"; 
+    }
+}
+
+</script>
+
+</body>
+</html>

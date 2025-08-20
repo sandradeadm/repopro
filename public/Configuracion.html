@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- conexion tailwind  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div class="min-h-screen bg-gray-50">
+            <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+                <div class="container mx-auto px-4 py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-white/20 p-2 rounded-lg">
+                                <img src="/estilos escuela/user.svg" alt="Logo" class="h-8 w-8 rounded-full">
+                            </div>
+                            <div>
+                                <h1 class="text-2xl font-bold">E.E.S.T N°4</h1>
+                                <p class="text-blue-100 text-sm">Sistema de Administración de Alumnos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded-lg">
+                                <img src="/estilos escuela/user.svg" alt="Usuario" class="h-4 w-4">
+                                <span class="text-sm" id="saludoUsuario"></span>
+                            </div>
+                           <button id="cerrarSesion"
+                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:text-accent-foreground h-9 rounded-md px-3 bg-white/10 border-white/20 text-white hover:bg-white/20">
+                            <img src="/estilos escuela/cerrarSesion.svg" alt="" class="h-5 w-5 mr-2">
+                            Cerrar sesión
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <nav class="bg-blue-700 border-b border-blue-600">
+                <div class="container mx-auto">
+                    <div class="flex space-x-1 overflow-x-auto py-2">
+                        <a href="index.html"
+                            class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/home.svg" alt="Inicio" class="size-4 shrink-0">
+                            <span>Inicio</span>
+                        </a>
+                        <a href="AlumnosOficina.html"
+                            class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/users.svg" alt="Oficina de Alumnos" class="size-4 shrink-0">
+                            <span>Oficina de Alumnos</span>
+                        </a>
+                        <a href="Cursos.html"
+                            class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/book-open.svg" alt="Gestión cursos" class="size-4 shrink-0">
+                            <span>Gestión cursos</span>
+                        </a>
+                        <a href="GestionAcademica.html"
+                            class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/graduation-cap.svg" alt="Gestión Académica"
+                                class="size-4 shrink-0">
+                            <span>Gestión Académica</span>
+                        </a>
+                        <a href="AdministracionUsuarios.html"
+                            class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/shield.svg" alt="Administración de Usuarios"
+                                class="size-4 shrink-0">
+                            <span>Administración de Usuarios</span>
+                        </a>
+                        <a href="bitacora.html"
+                            class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                            <img src="/estilos escuela/key.svg" alt="Bitácora" class="size-4 shrink-0">
+                            <span>Bitácora</span>
+                        </a>
+                        <a href="Configuracion.html"
+                            class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-secondary/80 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all bg-white text-blue-800 shadow-sm">
+                            <img src="/estilos escuela/settings.svg" alt="Configuración" class="size-4 shrink-0">
+                            <span>Configuración</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <main class="container mx-auto px-4 py-6">
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-sm border p-6">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Configuración del Sistema</h1>
+                        <p class="text-gray-600">Migración de datos, configuraciones generales y herramientas de
+                            administración.</p>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-database h-5 w-5 mr-2">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                    <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                                    <path d="M3 12A9 3 0 0 0 21 12"></path>
+                                </svg>Migración de Datos</h3>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <h3 class="font-semibold text-gray-900">Migración Semi-automática</h3>
+                                    <p class="text-sm text-gray-600">Analiza y transforma datos digitales (planillas)
+                                        para cargarlos en la base de datos.</p><button
+                                        class="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-upload h-4 w-4">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="17 8 12 3 7 8"></polyline>
+                                            <line x1="12" x2="12" y1="3" y2="15"></line>
+                                        </svg><span>Cargar Planillas Digitales</span></button>
+                                </div>
+                                <div class="space-y-4">
+                                    <h3 class="font-semibold text-gray-900">Migración Manual</h3>
+                                    <p class="text-sm text-gray-600">Los operadores cargan datos desde planillas en
+                                        papel mediante un panel con codificación automática.</p><button
+                                        class="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-settings h-4 w-4">
+                                            <path
+                                                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+                                            </path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg><span>Panel de Carga Manual</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                            <div class="flex flex-col space-y-1.5 p-6">
+                                <h3 class="text-2xl font-semibold leading-none tracking-tight">Configuraciones Generales
+                                </h3>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center p-3 border border-gray-200 rounded">
+                                        <span class="font-medium">Año Lectivo Actual</span><span
+                                            class="text-blue-600">2024</span>
+                                    </div>
+                                    <div class="flex justify-between items-center p-3 border border-gray-200 rounded">
+                                        <span class="font-medium">Período de Inscripción</span><span
+                                            class="text-green-600">Activo</span>
+                                    </div>
+                                    <div class="flex justify-between items-center p-3 border border-gray-200 rounded">
+                                        <span class="font-medium">Cupo Máximo por Curso</span><span
+                                            class="text-gray-900">30</span>
+                                    </div>
+                                    <div class="flex justify-between items-center p-3 border border-gray-200 rounded">
+                                        <span class="font-medium">Backup Automático</span><span
+                                            class="text-green-600">Habilitado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                            <div class="flex flex-col space-y-1.5 p-6">
+                                <h3 class="text-2xl font-semibold leading-none tracking-tight">Herramientas de
+                                    Administración</h3>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <div class="space-y-3"><button
+                                        class="w-full flex items-center space-x-2 p-3 border border-gray-200 rounded hover:bg-gray-50"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-download h-4 w-4 text-blue-600">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7 10 12 15 17 10"></polyline>
+                                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                                        </svg><span>Exportar Base de Datos</span></button><button
+                                        class="w-full flex items-center space-x-2 p-3 border border-gray-200 rounded hover:bg-gray-50"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-upload h-4 w-4 text-green-600">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="17 8 12 3 7 8"></polyline>
+                                            <line x1="12" x2="12" y1="3" y2="15"></line>
+                                        </svg><span>Importar Datos</span></button><button
+                                        class="w-full flex items-center space-x-2 p-3 border border-gray-200 rounded hover:bg-gray-50"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-settings h-4 w-4 text-purple-600">
+                                            <path
+                                                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+                                            </path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg><span>Configurar Permisos</span></button><button
+                                        class="w-full flex items-center space-x-2 p-3 border border-gray-200 rounded hover:bg-gray-50"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-database h-4 w-4 text-orange-600">
+                                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                            <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                                            <path d="M3 12A9 3 0 0 0 21 12"></path>
+                                        </svg><span>Mantenimiento de BD</span>
+                                    </button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+                <div class="text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg p-6">
+                    <h2 class="text-2xl font-bold mb-2">Escuela Técnica N° 4 Prof. Ricardo A. López</h2>
+                    <p class="text-blue-100">Sistema Integral de Gestión Académica</p>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div><strong>Ubicación:</strong> [Dirección de la escuela]</div>
+                        <div><strong>Desarrollado por:</strong> Equipo de Desarrollo</div>
+                        <div><strong>Versión:</strong> 2.0.1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <script>
+    // Proteger la página
+    if (!localStorage.getItem('usuario')) {
+        window.location.href = "Login.html";
+    }
+  // ========== PROTECCIÓN DE SESIÓN Y SALUDO ==========
+// Si no hay usuario en localStorage, redirige al login.
+// También muestra el saludo personalizado arriba a la derecha.
+if (!localStorage.getItem('usuario')) {
+    window.location.href = "Login.html";
+}
+const usuario = JSON.parse(localStorage.getItem('usuario'));
+document.getElementById('saludoUsuario').textContent = usuario ? `Hola, ${usuario.nombre}` : "Hola, Administrador";
+
+    // Función reutilizable para registrar logs en la bitácora
+    async function registrarLog(id_operacion, detalle, usuario_afectado = null) {
+        const usuarioStr = localStorage.getItem('usuario');
+        if (!usuarioStr) return;
+        const usuario = JSON.parse(usuarioStr);
+        try {
+            await fetch('http://localhost:3000/api/logs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id_operacion,
+                    id_usuario: usuario.id_usuario,
+                    ip: null,
+                    detalle,
+                    usuario_afectado
+                })
+            });
+        } catch (err) {
+            console.error('Error registrando en bitácora:', err);
+        }
+    }
+
+    // Botón cerrar sesión (registra el logout en bitácora)
+    document.getElementById('cerrarSesion').onclick = async function() {
+        const usuarioStr = localStorage.getItem('usuario');
+        if (usuarioStr) {
+            const usuario = JSON.parse(usuarioStr);
+            await registrarLog(
+                2, // id_operacion para logout
+                `El usuario ${usuario.id_usuario} cerró sesión`
+            );
+        }
+        localStorage.removeItem('usuario');
+        window.location.href = "Login.html";
+    };
+
+    // Registrar acceso al apartado Configuración en la bitácora
+    document.addEventListener('DOMContentLoaded', async () => {
+        const usuarioStr = localStorage.getItem('usuario');
+        let id_usuario = null;
+        if (usuarioStr) {
+            try {
+                const usuarioObj = JSON.parse(usuarioStr);
+                id_usuario = usuarioObj.id_usuario;
+            } catch(e) {
+                id_usuario = null;
+            }
+        }
+        if (id_usuario) {
+            await fetch('http://localhost:3000/api/logs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id_operacion: 11, // acceso_apartado
+                    id_usuario,
+                    ip: null,
+                    detalle: `El usuario ${id_usuario} accedió al apartado Configuración`, // <- Cambiado el nombre del módulo
+                    usuario_afectado: null
+                })
+            });
+        }
+    });
+</script>
+ 
+</body>
+
+</html>

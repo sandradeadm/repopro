@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+
+<body>
+    <div class="min-h-screen bg-gray-50">
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-white/20 p-2 rounded-lg">
+                            <img src="/estilos escuela/user.svg" alt="Logo" class="h-8 w-8 rounded-full">
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold">E.E.S.T N°4</h1>
+                            <p class="text-blue-100 text-sm">Sistema de Administración de Alumnos</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded-lg">
+                            <img src="/estilos escuela/user.svg" alt="Usuario" class="h-4 w-4">
+                            <span class="text-sm" id="saludoUsuario"></span>
+                        </div>
+                      <button id="cerrarSesion"
+                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:text-accent-foreground h-9 rounded-md px-3 bg-white/10 border-white/20 text-white hover:bg-white/20">
+                            <img src="/estilos escuela/cerrarSesion.svg" alt="" class="h-5 w-5 mr-2">
+                            Cerrar sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="bg-blue-700 border-b border-blue-600">
+            <div class="container mx-auto">
+                <div class="flex space-x-1 overflow-x-auto py-2">
+                    <a href="index.html"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-secondary/80 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all bg-white text-blue-800 shadow-sm">
+                        <img src="/estilos escuela/home.svg" alt="Inicio" class="size-4 shrink-0">
+                        <span>Inicio</span>
+                    </a>
+                    <a href="AlumnosOficina.html"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                        <img src="/estilos escuela/users.svg" alt="Oficina de Alumnos" class="size-4 shrink-0">
+                        <span>Oficina de Alumnos</span>
+                    </a>
+                    <a href="Cursos.html"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                        <img src="/estilos escuela/book-open.svg" alt="Gestión cursos" class="size-4 shrink-0">
+                        <span>Gestión cursos</span>
+                    </a>
+                    <a href="GestionAcademica.html"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                        <img src="/estilos escuela/graduation-cap.svg" alt="Gestión Académica" class="size-4 shrink-0">
+                        <span>Gestión Académica</span>
+                    </a>
+                    <a href="AdministracionUsuarios.html"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                        <img src="/estilos escuela/shield.svg" alt="Administración de Usuarios" class="size-4 shrink-0">
+                        <span>Administración de Usuarios</span>
+                    </a>
+                    <a href="bitacora.html"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                        <img src="/estilos escuela/key.svg" alt="Bitácora" class="size-4 shrink-0">
+                        <span>Bitácora</span>
+                    </a>
+                    <a href="Configuracion.html"
+                        class="justify-center gap-2 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 flex items-center space-x-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all text-blue-100 hover:bg-blue-600 hover:text-white">
+                        <img src="/estilos escuela/settings.svg" alt="Configuración" class="size-4 shrink-0">
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main class="container mx-auto px-4 py-6">
+            <div class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Total Alumnos</p>
+                                    <p class="text-3xl font-bold text-gray-900">1,234</p>
+                                    <p class="text-sm text-green-600 flex items-center mt-1">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-trending-up h-4 w-4 mr-1">
+                                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                                            <polyline points="16 7 22 7 22 13"></polyline>
+                                        </svg>
+                                        +12%
+                                    </p>
+                                </div>
+                                <div class="bg-blue-500 p-3 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-users h-6 w-6 text-white">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Cursos Activos</p>
+                                    <p class="text-3xl font-bold text-gray-900">45</p>
+                                    <p class="text-sm text-green-600 flex items-center mt-1"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-trending-up h-4 w-4 mr-1">
+                                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                                            <polyline points="16 7 22 7 22 13"></polyline>
+                                        </svg>+5%</p>
+                                </div>
+                                <div class="bg-green-500 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-book-open h-6 w-6 text-white">
+                                        <path d="M12 7v14"></path>
+                                        <path
+                                            d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z">
+                                        </path>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Egresados</p>
+                                    <p class="text-3xl font-bold text-gray-900">856</p>
+                                    <p class="text-sm text-green-600 flex items-center mt-1"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-trending-up h-4 w-4 mr-1">
+                                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                                            <polyline points="16 7 22 7 22 13"></polyline>
+                                        </svg>+8%</p>
+                                </div>
+                                <div class="bg-purple-500 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-graduation-cap h-6 w-6 text-white">
+                                        <path
+                                            d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z">
+                                        </path>
+                                        <path d="M22 10v6"></path>
+                                        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Promedio General</p>
+                                    <p class="text-3xl font-bold text-gray-900">7.8</p>
+                                    <p class="text-sm text-green-600 flex items-center mt-1"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-trending-up h-4 w-4 mr-1">
+                                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                                            <polyline points="16 7 22 7 22 13"></polyline>
+                                        </svg>+0.3</p>
+                                </div>
+                                <div class="bg-orange-500 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-award h-6 w-6 text-white">
+                                        <path
+                                            d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                        </path>
+                                        <circle cx="12" cy="8" r="6"></circle>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="text-2xl font-semibold leading-none tracking-tight">Actividad Reciente</h3>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50">
+                                    <div class="bg-blue-100 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-calendar h-4 w-4 text-blue-600">
+                                            <path d="M8 2v4"></path>
+                                            <path d="M16 2v4"></path>
+                                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                            <path d="M3 10h18"></path>
+                                        </svg></div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-900">Nuevo alumno inscrito</p>
+                                        <p class="text-sm text-gray-600">Juan Pérez</p>
+                                    </div><span class="text-xs text-gray-400">Hace 2 horas</span>
+                                </div>
+                                <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50">
+                                    <div class="bg-blue-100 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-calendar h-4 w-4 text-blue-600">
+                                            <path d="M8 2v4"></path>
+                                            <path d="M16 2v4"></path>
+                                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                            <path d="M3 10h18"></path>
+                                        </svg></div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-900">Calificaciones cargadas</p>
+                                        <p class="text-sm text-gray-600">Curso 3°A</p>
+                                    </div><span class="text-xs text-gray-400">Hace 4 horas</span>
+                                </div>
+                                <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50">
+                                    <div class="bg-blue-100 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-calendar h-4 w-4 text-blue-600">
+                                            <path d="M8 2v4"></path>
+                                            <path d="M16 2v4"></path>
+                                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                            <path d="M3 10h18"></path>
+                                        </svg></div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-900">Pase generado</p>
+                                        <p class="text-sm text-gray-600">María González</p>
+                                    </div><span class="text-xs text-gray-400">Hace 1 día</span>
+                                </div>
+                                <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50">
+                                    <div class="bg-blue-100 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-calendar h-4 w-4 text-blue-600">
+                                            <path d="M8 2v4"></path>
+                                            <path d="M16 2v4"></path>
+                                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                            <path d="M3 10h18"></path>
+                                        </svg></div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-900">Plan de estudio actualizado</p>
+                                        <p class="text-sm text-gray-600">Especialidad Informática</p>
+                                    </div><span class="text-xs text-gray-400">Hace 2 días</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="text-2xl font-semibold leading-none tracking-tight">Accesos Rápidos</h3>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="grid grid-cols-2 gap-4"><button
+                                    class="p-4 text-left rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-users h-8 w-8 text-blue-600 mb-2">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <h3 class="font-semibold text-gray-900">Inscribir Alumno</h3>
+                                    <p class="text-sm text-gray-600">Registrar nuevo estudiante</p>
+                                </button><button
+                                    class="p-4 text-left rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-colors"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-book-open h-8 w-8 text-green-600 mb-2">
+                                        <path d="M12 7v14"></path>
+                                        <path
+                                            d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z">
+                                        </path>
+                                    </svg>
+                                    <h3 class="font-semibold text-gray-900">Crear Curso</h3>
+                                    <p class="text-sm text-gray-600">Nuevo curso académico</p>
+                                </button><button
+                                    class="p-4 text-left rounded-lg border border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-colors"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-graduation-cap h-8 w-8 text-purple-600 mb-2">
+                                        <path
+                                            d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z">
+                                        </path>
+                                        <path d="M22 10v6"></path>
+                                        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
+                                    </svg>
+                                    <h3 class="font-semibold text-gray-900">Cargar Notas</h3>
+                                    <p class="text-sm text-gray-600">Registrar calificaciones</p>
+                                </button><button
+                                    class="p-4 text-left rounded-lg border border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-colors"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-award h-8 w-8 text-orange-600 mb-2">
+                                        <path
+                                            d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                        </path>
+                                        <circle cx="12" cy="8" r="6"></circle>
+                                    </svg>
+                                    <h3 class="font-semibold text-gray-900">Generar Pase</h3>
+                                    <p class="text-sm text-gray-600">Documentación de transferencia</p>
+                                </button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6">
+                        <div class="text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg p-6">
+                            <h2 class="text-2xl font-bold mb-2">Escuela Técnica N° 4 Prof. Ricardo A. López</h2>
+                            <p class="text-blue-100">Sistema Integral de Gestión Académica</p>
+                            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div><strong>Ubicación:</strong> [Dirección de la escuela]</div>
+                                <div><strong>Desarrollado por:</strong> Equipo de Desarrollo</div>
+                                <div><strong>Versión:</strong> 2.0.1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+
+<body>
+    
+        </main>
+    </div>
+  <script>
+    // Proteger la página
+    if (!localStorage.getItem('usuario')) {
+        window.location.href = "Login.html";
+    }
+  //PROTECCIÓN DE SESIÓN Y SALUDO 
+
+if (!localStorage.getItem('usuario')) {
+    window.location.href = "Login.html";
+}
+const usuario = JSON.parse(localStorage.getItem('usuario'));
+document.getElementById('saludoUsuario').textContent = usuario ? `Hola, ${usuario.nombre}` : "Hola, Administrador";
+
+    // Función para registrar en la bitácora
+    async function registrarLog(id_operacion, detalle, usuario_afectado = null) {
+        const usuarioStr = localStorage.getItem('usuario');
+        if (!usuarioStr) return;
+        const usuario = JSON.parse(usuarioStr);
+        try {
+            await fetch('http://localhost:3000/api/logs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id_operacion,
+                    id_usuario: usuario.id_usuario,
+                    ip: null,
+                    detalle,
+                    usuario_afectado
+                })
+            });
+        } catch (err) {
+            console.error('Error registrando en bitácora:', err);
+        }
+    }
+    
+
+    // Manejar cierre de sesión con registro en bitácora
+    document.getElementById('cerrarSesion').onclick = async function() {
+        const usuarioStr = localStorage.getItem('usuario');
+        if (usuarioStr) {
+            const usuario = JSON.parse(usuarioStr);
+            await registrarLog(
+                2, // id_operacion para logout
+                `El usuario ${usuario.id_usuario} cerró sesión`
+            );
+        }
+        localStorage.removeItem('usuario');
+        window.location.href = "Login.html";
+    };
+
+    // Registrar acceso al apartado Inicio
+    document.addEventListener('DOMContentLoaded', async () => {
+        const usuarioStr = localStorage.getItem('usuario');
+        let id_usuario = null;
+        if (usuarioStr) {
+            try {
+                const usuarioObj = JSON.parse(usuarioStr);
+                id_usuario = usuarioObj.id_usuario;
+            } catch(e) {
+                id_usuario = null;
+            }
+        }
+        if (id_usuario) {
+            await fetch('http://localhost:3000/api/logs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id_operacion: 11, // acceso_apartado
+                    id_usuario,
+                    ip: null,
+                    detalle: `El usuario ${id_usuario} accedió al apartado Inicio`,
+                    usuario_afectado: null
+                })
+            });
+        }
+    });
+  </script>
+</body>
+</html>
+</body>
+
+</html>
