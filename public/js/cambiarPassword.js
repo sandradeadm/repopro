@@ -1,3 +1,19 @@
+// ========== PASSWORD CHANGE FUNCTIONALITY ==========
+
+// ========== CHANGE PASSWORD ==========
+// Open/close modal to change password and send request to backend
+function abrirModalCambiarPassword() {
+    document.getElementById('modalCambiarPassword').style.display = 'flex';
+    document.getElementById('formCambiarPassword').reset();
+    document.getElementById('nombreUsuarioCambioPass').textContent = usuarioCambioPasswordNombre;
+}
+
+function cerrarModalCambiarPassword() {
+    document.getElementById('modalCambiarPassword').style.display = 'none';
+    usuarioCambioPasswordId = null;
+    usuarioCambioPasswordNombre = "";
+}
+
 // Cambiar contraseña de usuario
 document.getElementById('formCambiarPassword').addEventListener('submit', function(event) {
     event.preventDefault();

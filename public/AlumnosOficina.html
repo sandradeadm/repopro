@@ -384,55 +384,8 @@
             </div>
         </div>
     </div>
- <script>
-      if (!localStorage.getItem('usuario')) {
-        window.location.href = "Login.html";
-    }
-        // ========== PROTECCIÓN DE SESIÓN Y SALUDO ==========
-
-if (!localStorage.getItem('usuario')) {
-    window.location.href = "Login.html";
-}
-const usuario = JSON.parse(localStorage.getItem('usuario'));
-document.getElementById('saludoUsuario').textContent = usuario ? `Hola, ${usuario.nombre}` : "Hola, Administrador";
-
-     // Función reutilizable para registrar logs en la bitácora
-    async function registrarLog(id_operacion, detalle, usuario_afectado = null) {
-        const usuarioStr = localStorage.getItem('usuario');
-        if (!usuarioStr) return;
-        const usuario = JSON.parse(usuarioStr);
-        try {
-            await fetch('http://localhost:3000/api/logs', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    id_operacion,
-                    id_usuario: usuario.id_usuario,
-                    ip: null,
-                    detalle,
-                    usuario_afectado
-                })
-            });
-        } catch (err) {
-            console.error('Error registrando en bitácora:', err);
-        }
-    }
-
-     // Botón cerrar sesión (registra el logout en bitácora)
-    document.getElementById('cerrarSesion').onclick = async function() {
-        const usuarioStr = localStorage.getItem('usuario');
-        if (usuarioStr) {
-            const usuario = JSON.parse(usuarioStr);
-            await registrarLog(
-                2, // id_operacion para logout
-                `El usuario ${usuario.id_usuario} cerró sesión`
-            );
-        }
-        localStorage.removeItem('usuario');
-        window.location.href = "Login.html";
-    };
-</script>
-
+    <!-- JavaScript modules for page functionality -->
+    <script src="js/pageProtection.js"></script>
+    <script src="js/pageAccess.js"></script>
 </body>
-
 </html>

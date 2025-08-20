@@ -1,12 +1,10 @@
 // ========== VER CONTRASEÑA SOLO ADMIN ==========
 // Variables globales para el usuario a visualizar
-let usuarioVerPassId = null;
 let usuarioVerPassNombre = null;
 
 // Muestra el modal para ver la contraseña de un usuario (solo si el usuario logueado es admin).
-function verPass(id_usuario, nombre_usuario) {
+function verPass(id_usuario) {
     usuarioVerPassId = id_usuario;
-    usuarioVerPassNombre = nombre_usuario;
     document.getElementById('modalVerPass').style.display = 'flex';
     document.getElementById('formVerPass').reset();
 }
@@ -36,11 +34,11 @@ document.getElementById('formVerPass').onsubmit = async function(e) {
             const passInput = document.getElementById('pass-' + usuarioVerPassId);
             passInput.type = passInput.type === 'password' ? 'text' : 'password';
 
-            // Registrar en la bitácora con NOMBRE e ID
+            // Registrar en la bitácora con ID
             registrarLog(
                 12,
-                `El administrador ${usuarioAdmin} visualizó la contraseña del usuario ${usuarioVerPassNombre} (ID: ${usuarioVerPassId})`,
-                usuarioVerPassNombre
+                `El administrador ${usuarioAdmin} visualizó la contraseña del usuario ${usuarioVerPassId}`,
+                usuarioVerPassId
             );
 
             cerrarModalVerPass();
