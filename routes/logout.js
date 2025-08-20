@@ -1,7 +1,7 @@
 // Logout simple
 document.getElementById('cerrarSesion').onclick = function() {
     localStorage.removeItem('usuario');
-    window.location.href = "Login.html";
+    window.location.href = "views/login.html";
 };
 // Logout con registro en bitácora
 function cerrarSesion() {
@@ -13,5 +13,5 @@ function cerrarSesion() {
         usuarioObj.nombre
     );
     localStorage.removeItem('usuario');
-    window.location.href = 'login.html';
+    window.location.href = 'views/login.html';
 }
