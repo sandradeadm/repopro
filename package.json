@@ -1,4 +1,15 @@
 {
+  "name": "e-e-s-t-4-sistema-administracion",
+  "version": "1.0.0",
+  "description": "Sistema dinámico de administración escolar E.E.S.T N°4",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "keywords": ["escuela", "administracion", "dinamico", "ejs", "express"],
+  "author": "Equipo de Desarrollo",
+  "license": "MIT",
   "devDependencies": {
     "tailwindcss": "^4.1.11"
   },
