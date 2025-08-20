@@ -2,7 +2,7 @@
 // If no user in localStorage, redirect to login
 // Also show personalized greeting on top right
 if (!localStorage.getItem('usuario')) {
-    window.location.href = "Login.html";
+    window.location.href = "/login";
 }
 
 const usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -44,6 +44,6 @@ if (document.getElementById('cerrarSesion')) {
             );
         }
         localStorage.removeItem('usuario');
-        window.location.href = "Login.html";
+        window.location.href = "/login";
     };
 }

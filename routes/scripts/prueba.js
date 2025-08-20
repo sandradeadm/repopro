@@ -3,7 +3,7 @@
 // Si no hay usuario en localStorage, redirige al login.
 // También muestra el saludo personalizado arriba a la derecha.
 if (!localStorage.getItem('usuario')) {
-    window.location.href = "Login.html";
+    window.location.href = "/login";
 }
 const usuario = JSON.parse(localStorage.getItem('usuario'));
 document.getElementById('saludoUsuario').textContent = usuario ? `Hola, ${usuario.nombre}` : "Hola, Administrador";
@@ -175,7 +175,7 @@ document.getElementById('nextBtn').onclick = function() {
 // Elimina el usuario de la sesión y redirige a login.
 document.getElementById('cerrarSesion').onclick = function() {
     localStorage.removeItem('usuario');
-    window.location.href = "Login.html";
+    window.location.href = "/login";
 };
 
 // ========== FUNCIÓN CERRAR SESIÓN CON REGISTRO EN LOG ==========
