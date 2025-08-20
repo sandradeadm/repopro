@@ -1,0 +1,78 @@
+<div class="space-y-6">
+    <div class="bg-white rounded-lg shadow-sm border p-6">
+        <h1 class="text-2xl font-bold text-gray-900 mb-2">Bitácora del Sistema</h1>
+        <p class="text-gray-600">Registro de actividades, eventos y auditoría del sistema.</p>
+    </div>
+    
+    <!-- Filtros de búsqueda -->
+    <div class="bg-white rounded-lg shadow-sm border p-6">
+        <h2 class="text-lg font-semibold mb-4">Filtros de Búsqueda</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+                <label class="block text-sm font-medium mb-2">Buscar</label>
+                <input type="text" id="searchLogs" placeholder="Usuario, operación..." class="w-full border px-3 py-2 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-2">Fecha Inicio</label>
+                <input type="date" id="fechaInicio" class="w-full border px-3 py-2 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-2">Fecha Fin</label>
+                <input type="date" id="fechaFin" class="w-full border px-3 py-2 rounded-md">
+            </div>
+            <div class="flex items-end">
+                <button onclick="cargarLogs()" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de logs -->
+    <div class="bg-white rounded-lg shadow-sm border">
+        <div class="p-6">
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-left p-3">Fecha y Hora</th>
+                            <th class="text-left p-3">Usuario</th>
+                            <th class="text-left p-3">Operación</th>
+                            <th class="text-left p-3">Detalle</th>
+                            <th class="text-left p-3">IP</th>
+                            <th class="text-left p-3">Usuario Afectado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaLogs">
+                        <!-- Contenido dinámico -->
+                        <tr>
+                            <td colspan="6" class="text-center p-4 text-gray-500">Cargando registros...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="paginacionLogs" class="mt-4 flex justify-center">
+                <!-- Paginación dinámica -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Información de la escuela -->
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+        <div class="p-6">
+            <div class="text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-2">Escuela Técnica N° 4 Prof. Ricardo A. López</h2>
+                <p class="text-blue-100">Sistema Integral de Gestión Académica</p>
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div><strong>Ubicación:</strong> [Dirección de la escuela]</div>
+                    <div><strong>Desarrollado por:</strong> Equipo de Desarrollo</div>
+                    <div><strong>Versión:</strong> 2.0.1</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts específicos de la página -->
+<script src="bitacora.js"></script>
+<script src="js/pageProtection.js"></script>
+<script src="js/pageAccess.js"></script>

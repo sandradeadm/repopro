@@ -1,0 +1,88 @@
+<div class="space-y-6">
+    <div class="bg-white rounded-lg shadow-sm border p-6">
+        <h1 class="text-2xl font-bold text-gray-900 mb-2">Administración de Usuarios</h1>
+        <p class="text-gray-600">Gestión de usuarios del sistema, roles, permisos y configuración de contraseñas.</p>
+    </div>
+    
+    <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+        <!-- boton gestionar grupos -->
+        <div onclick="abrirModalGestionarGrupos()" class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow cursor-pointer w-80">
+            <div class="p-6 text-center">
+                <img src="/estilos escuela/groups.svg" alt="" class="lucide lucide-users-group h-12 w-12 text-purple-600 mx-auto mb-3">
+                <h3 class="font-semibold text-gray-900 mb-2">Gestionar Grupos</h3>
+                <p class="text-sm text-gray-600">Cambiar grupo de los usuarios</p>
+            </div>
+        </div>
+        
+        <!-- boton para crear usuario -->
+        <div onclick="abrirModalAgregarUsuario()" class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow cursor-pointer w-80">
+            <div class="p-6 text-center">
+                <img src="/estilos escuela/user-new(+).svg" alt="" class="lucide lucide-user-plus h-12 w-12 text-blue-600 mx-auto mb-3">
+                <h3 class="font-semibold text-gray-900 mb-2">Crear Usuario</h3>
+                <p class="text-sm text-gray-600">Alta de nuevos usuarios con roles</p>
+            </div>
+        </div>
+        
+        <!-- Botón Gestionar Permisos -->
+        <div onclick="abrirModalGestionarPermisos()" class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow cursor-pointer w-80">
+            <div class="p-6 text-center">
+                <img src="/estilos escuela/shieldRed.svg" alt="" class="lucide lucide-lock h-12 w-12 text-yellow-600 mx-auto mb-3">
+                <h3 class="font-semibold text-gray-900 mb-2">Gestionar Permisos</h3>
+                <p class="text-sm text-gray-600">Roles y accesos del sistema</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de usuarios -->
+    <div class="bg-white rounded-lg shadow-sm border">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold">Usuarios del Sistema</h2>
+                <div class="flex gap-2">
+                    <input type="text" id="searchUsuarios" placeholder="Buscar usuarios..." class="border px-3 py-2 rounded-md">
+                    <button onclick="cargarUsuarios()" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Actualizar</button>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-left p-2">ID</th>
+                            <th class="text-left p-2">Nombre</th>
+                            <th class="text-left p-2">DNI</th>
+                            <th class="text-left p-2">Rol</th>
+                            <th class="text-left p-2">Grupo</th>
+                            <th class="text-left p-2">Estado</th>
+                            <th class="text-left p-2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaUsuarios">
+                        <!-- Contenido dinámico -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="paginacion" class="mt-4 flex justify-center">
+                <!-- Paginación dinámica -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modales y contenido adicional se incluirán aquí -->
+<div id="modales-container">
+    <!-- Los modales se cargarán dinámicamente -->
+</div>
+
+<!-- Scripts específicos de la página -->
+<script src="js/prueba.js"></script>
+<script src="js/pageProtection.js"></script>
+<script src="js/pageAccess.js"></script>
+<script src="js/pagination.js"></script>
+<script src="js/userActions.js"></script>
+<script src="js/cambiarPassword.js"></script>
+<script src="js/permissions.js"></script>
+<script src="js/nuevoUsuario.js"></script>
+<script src="js/verPass.js"></script>
+<script src="js/init.js"></script>
