@@ -1,20 +1,43 @@
-// PRUEBAS (BORRAR)
-fetch('http://localhost:3000/api/usuarios/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ usuario, password })
-})
-.then(res => res.json())
-.then(res => {
-    if (res.success) {
-        localStorage.setItem('usuario', JSON.stringify(res.user));
-        registrarLog(
-            1, // id_operacion para login
-            `El usuario ${res.user.id_usuario} inició sesión`,
-            res.user.nombre
-        );
-        window.location.href = 'inicio.html';
-    } else {
-        // mostrar error...
+// ========== LOGIN FUNCTIONALITY ==========
+
+let usuarioCambioClave = null;
+
+// Login with session storage in localStorage
+document.getElementById('loginForm').onsubmit = async function(e) {
+    e.preventDefault();
+    const usuario = document.getElementById('usuario').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const msg = document.getElementById('loginMsg');
+    msg.textContent = '';
+
+    const res = await fetch('http://localhost:3000/api/usuarios/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ usuario, password })
+    });
+    const data = await res.json();
+
+    // If password expired, show modal for mandatory change
+    if (data.requiereCambioPassword) {
+        usuarioCambioClave = data.user.id_usuario || usuario; // Save id for the change
+        mostrarModalCambioPassword();
+        msg.style.color = 'orange';
+        msg.textContent = data.message || 'La contraseña ha expirado. Debe cambiarla.';
+        return;
     }
-});
+
+    if (data.success) {
+        msg.style.color = 'green';
+        msg.textContent = '¡Login exitoso!';
+        localStorage.setItem('usuario', JSON.stringify(data.user));
+        setTimeout(()=>window.location.href="index.html", 500);
+    } else {
+        msg.style.color = 'red';
+        msg.textContent = data.message || 'Usuario o contraseña incorrectos';
+    }
+};
+
+// If already logged in, redirect to index
+if (localStorage.getItem('usuario')) {
+    window.location.href = "index.html";
+}
